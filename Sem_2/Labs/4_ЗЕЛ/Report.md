@@ -100,3 +100,5 @@ int main()
     return 0;
 }
 ```
+# 3) Блок-схема
+<image src ="4_ЗЕЛ.png">
