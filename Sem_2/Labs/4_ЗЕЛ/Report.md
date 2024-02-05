@@ -9,3 +9,94 @@
  4) Распечатать полученный массив, начиная с К-ого элемента
  (и до К+1 по кольцу вправо).
 # 2) Код программы
+
+```cpp
+﻿#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int n = 10;
+    int r, k, b, tmp;
+    int a[10];
+    cout << "Изначальный массив: ";
+    for (int i = 0; i < n; i++)
+    {
+        a[i] = rand() % 101 - 50;
+        cout << a[i] << " ";
+    }
+    cout << endl << "Введие К" << endl;
+    cin >> k;
+    cout << "Ввод 1, чтобы сдвинуть К раз влево" << endl << "Ввод 2, чтобы сдвинуть К раз вправо" << endl;
+    cin >> b;
+    if (b == 2)
+    {
+        for (int i = 0; i < k; i++)
+        {
+            r = a[n - 1];
+            for (int j = n - 1; j > 0; j--)
+            {
+                a[j] = a[j - 1];
+            }
+            a[0] = r;
+        }
+    }
+    if (b == 1)
+    {
+        for (int i = 0; i < k; i++)
+        {
+            r = a[0];
+            for (int j = 0; j < n - 1; j++)
+            {
+                a[j] = a[j + 1];
+            }
+            a[n - 1] = r;
+        }
+    }
+    cout << "1) Сдвинутый массив: ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl << "2) Начиная с К-ого элемента и до К-1 (по кольцу влево): ";
+
+    for (int i = n - 1; i > n - k - 1; i--)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl << "3) Начиная с К-ого элемента и до К+1 (по кольцу вправо): ";
+    for (int i = 0; i < k; i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl << "4) Добавить в кольцо после элементов кратным 5 элементы равные 0: ";
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] % 5 == 0)
+        {
+            for (int j = n - 1; j > i - 1; j--)
+            {
+                a[j + 1] = a[j];
+            }
+            a[i] = 0;
+            i++;
+            n++;
+        }
+    }
+    for (int i = 0; i < n / 2; i++)
+    {
+        tmp = a[i];
+        a[i] = a[n - i - 1];
+        a[n - i - 1] = tmp;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    for (int i = 0; i < n - 1; i++)
+    {
+        a[i] = a[i + 1];
+    }
+    return 0;
+}
+```
