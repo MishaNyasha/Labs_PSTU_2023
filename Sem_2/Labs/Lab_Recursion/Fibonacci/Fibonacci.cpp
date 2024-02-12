@@ -14,7 +14,8 @@ int main()
 	cin >> m;
 	for (int i = 0; i < m; i++)
 	{
-		cout << foo(i) << " ";
+		int a = foo(i);
+		cout << a << " ";
 	}
 	return 0;
 }
