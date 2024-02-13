@@ -1,18 +1,17 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 const int n = 8;
 int board[n][n];
-bool flag = 1;
-
+int N = 1;
 void show()
 {
-    for (int i = 0; i < n; i++)
+    for (int a = 0; a < n; a++)
     {
-        for (int j = 0; j < n; j++)
+        for (int b = 0; b < n; b++)
         {
-            cout << ((board[i][j]) ? "[Q] " : "[ ] ");
+            cout << ((board[a][b]) ? "[Q] " : "[ ] ");
         }
-        cout << endl << endl;
+        cout << endl << endl;;
     }
 }
 bool check(int a, int b)
@@ -40,13 +39,12 @@ bool check(int a, int b)
     }
     return true;
 }
-
 void set(int a)
 {
-    if (a == n && flag == 1)
+    if (a == n)
     {
         show();
-        flag = 0;
+        cout << "   №" << N++ << endl << endl;
         return;
     }
     for (int i = 0; i < n; i++)
@@ -60,29 +58,65 @@ void set(int a)
     }
     return;
 }
-
 int main()
 {
     set(0);
+    return 0;
 }
 /*
+    Test 1
+    
+[ ] [ ] [ ] [Q] [ ] [ ] [ ] [ ] 
 
-    Test
+[ ] [ ] [ ] [ ] [ ] [Q] [ ] [ ] 
 
-[Q] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+[ ] [ ] [ ] [ ] [ ] [ ] [ ] [Q] 
 
-[ ] [ ] [ ] [ ] [Q] [ ] [ ] [ ]
+[ ] [ ] [Q] [ ] [ ] [ ] [ ] [ ] 
 
-[ ] [ ] [ ] [ ] [ ] [ ] [ ] [Q]
+[Q] [ ] [ ] [ ] [ ] [ ] [ ] [ ] 
 
-[ ] [ ] [ ] [ ] [ ] [Q] [ ] [ ]
+[ ] [ ] [ ] [ ] [ ] [ ] [Q] [ ] 
 
-[ ] [ ] [Q] [ ] [ ] [ ] [ ] [ ]
+[ ] [ ] [ ] [ ] [Q] [ ] [ ] [ ] 
 
-[ ] [ ] [ ] [ ] [ ] [ ] [Q] [ ]
+[ ] [Q] [ ] [ ] [ ] [ ] [ ] [ ] 
 
-[ ] [Q] [ ] [ ] [ ] [ ] [ ] [ ]
 
-[ ] [ ] [ ] [Q] [ ] [ ] [ ] [ ]
+    Test 2
+    
+[ ] [ ] [ ] [Q] [ ] [ ] [ ] [ ] 
 
+[ ] [ ] [ ] [ ] [ ] [ ] [Q] [ ] 
+
+[Q] [ ] [ ] [ ] [ ] [ ] [ ] [ ] 
+
+[ ] [ ] [ ] [ ] [ ] [ ] [ ] [Q] 
+
+[ ] [ ] [ ] [ ] [Q] [ ] [ ] [ ] 
+
+[ ] [Q] [ ] [ ] [ ] [ ] [ ] [ ] 
+
+[ ] [ ] [ ] [ ] [ ] [Q] [ ] [ ] 
+
+[ ] [ ] [Q] [ ] [ ] [ ] [ ] [ ] 
+
+
+    Test 3
+    
+[ ] [ ] [ ] [ ] [ ] [ ] [ ] [Q] 
+
+[ ] [ ] [Q] [ ] [ ] [ ] [ ] [ ] 
+
+[Q] [ ] [ ] [ ] [ ] [ ] [ ] [ ] 
+
+[ ] [ ] [ ] [ ] [ ] [Q] [ ] [ ] 
+
+[ ] [Q] [ ] [ ] [ ] [ ] [ ] [ ] 
+
+[ ] [ ] [ ] [ ] [Q] [ ] [ ] [ ] 
+
+[ ] [ ] [ ] [ ] [ ] [ ] [Q] [ ] 
+
+[ ] [ ] [ ] [Q] [ ] [ ] [ ] [ ] 
 */
