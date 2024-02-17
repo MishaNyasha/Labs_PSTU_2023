@@ -55,7 +55,9 @@ int main()
 }
 ```
 # 3) Блок-схема
-<image src ="5_ЗЕЛ.png">
+<image src ="5_ЗЕЛ_main.png">
+
+<image src ="5_ЗЕЛ_showMatrix.png">
 
 # 4) Тесты
 ```cpp
