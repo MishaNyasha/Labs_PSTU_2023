@@ -107,8 +107,8 @@ int main()
 }
 ```
 # 3) Блок-схема
-<image src ="7.1_ЗЕЛ_main.png"> <image src ="7.1_ЗЕЛ_foo1.png">
-<image src ="7.1_ЗЕЛ_foo2.png">
+<image src ="7.1_ЗЕЛ_main.png"> 
+<image src ="7.1_ЗЕЛ_foo1.png"><image src ="7.1_ЗЕЛ_foo2.png">
   
 # 4) Тесты
 ```cpp
