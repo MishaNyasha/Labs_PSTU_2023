@@ -1,22 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-
 using namespace std;
-
 struct state
 {
     string language;
     string money;
     double rate;
 };
-
 using States = map<string, state>;
-
-
 void write_file(const char * file_name, const States& states)
 {
-    
     ofstream outfile(file_name);
     if (!outfile.is_open())
     {
@@ -32,7 +26,6 @@ void write_file(const char * file_name, const States& states)
 
 States read_file(const char * file_name)
 {
-    
     ifstream infile(file_name);
     States states;
     if (!infile.is_open())
@@ -55,7 +48,6 @@ States read_file(const char * file_name)
     infile.close();
     return states;
 }
-
 void print_states(const States& states)
 {
     for(auto i : states)
@@ -63,8 +55,6 @@ void print_states(const States& states)
         cout << i.first << "  " << i.second.language << "  " << i.second.money << "  " << i.second.rate << endl;
     }
 }
-
-
 pair<string, state> read_state_from_user()
 {
     string name, language, money;
@@ -72,7 +62,6 @@ pair<string, state> read_state_from_user()
     cin >> name >> language >> money >> rate;
     return pair<string, state>(name, {language, money, rate});
 }
-
 States read_states_from_user()
 {
     cout << "Введите данные стран (Название, название языка, название денежной единицы, денежная единица относительно $)\n";
@@ -84,7 +73,6 @@ States read_states_from_user()
     }
     return states;
 }
-
 void create_file()
 {
     States states = read_states_from_user();
@@ -92,8 +80,6 @@ void create_file()
     print_states(states);
     write_file("F1", states);
 }
-
-
 void erase_state(States& states)
 {
     cout << "Введите страну для удаления: ";
@@ -101,7 +87,6 @@ void erase_state(States& states)
     cin >> state_to_erase;
     states.erase(state_to_erase);
 }
-
 void add_state(States& states)
 {
     cout << "Введите данные новой страны:\n";
@@ -113,7 +98,6 @@ void add_state(States& states)
     }
     states.insert(new_state);
 }
-
 void process_file()
 {
     States states = read_file("F1");
@@ -124,17 +108,14 @@ void process_file()
     print_states(states);
     write_file("F2", states);
 }
-
 int main()
 {
     create_file();
     process_file();
     return 0;
 }
-
 /*
     Test
-    
 Введите данные стран (Название, название языка, название денежной единицы, денежная единица относительно $)
 Germ
 Germ
