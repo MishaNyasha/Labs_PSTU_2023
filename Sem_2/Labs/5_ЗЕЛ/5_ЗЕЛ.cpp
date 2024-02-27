@@ -24,7 +24,7 @@ int main()
         }
     }
     showMatrix(matrix, 5, 5);
-    int min = 9999;
+    int min = 2147483647;
     bool flag = 0;
     for (int i = 0; i < 5; i++)
     {
@@ -37,7 +37,7 @@ int main()
             }
             else if (matrix[i][j] == min)
             {
-                matrix[i][j] = 9999;
+                matrix[i][j] = 2147483647;
                 flag = 1;
             }
         }
