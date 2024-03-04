@@ -179,3 +179,60 @@ int main()
            <image src ="11_ЗЕЛ_write_list_in_file.png">
       
 # 3) Тесты
+```cpp
+/*
+    Test 1
+Сколько К элементов добавить в начало и конец?
+5
+Введите элементы:
+Добавить в начало:ss
+Добавить в конец:rr
+Добавить в начало:qq
+Добавить в конец:zz
+Добавить в начало:oo
+Добавить в конец:pp
+Добавить в начало:gg
+Добавить в конец:cc
+Добавить в начало:nn
+Добавить в конец:mm
+nn  gg  oo  qq  ss  rr  zz  pp  cc  mm  
+Введие ключевое слово, которое надо удалить: zz
+nn  gg  oo  qq  ss  rr  pp  cc  mm  
+Список пуст
+nn  gg  oo  qq  ss  rr  zz  pp  cc  mm  
+
+    Test 2
+Сколько К элементов добавить в начало и конец?
+3
+Введите элементы:
+Добавить в начало:Roar
+Добавить в конец:gaoh
+Добавить в начало:orroa
+Добавить в конец:tieng_gam
+Добавить в начало:rugido
+Добавить в конец:garjana
+rugido  orroa  Roar  gaoh  tieng_gam  garjana  
+Введие ключевое слово, которое надо удалить: gaoh
+rugido  orroa  Roar  tieng_gam  garjana  
+Список пуст
+rugido  orroa  Roar  gaoh  tieng_gam  garjana  
+
+    Test 3
+Сколько К элементов добавить в начало и конец?
+4
+Введите элементы:
+Добавить в начало:Chapa
+Добавить в конец:Rubi
+Добавить в начало:Chapa
+Добавить в конец:Rubi
+Добавить в начало:Chipi
+Добавить в конец:Raba
+Добавить в начало:Chipi
+Добавить в конец:Raba
+Chipi  Chipi  Chapa  Chapa  Rubi  Rubi  Raba  Raba  
+Введие ключевое слово, которое надо удалить: Chipi
+Chipi  Chapa  Chapa  Rubi  Rubi  Raba  Raba  
+Список пуст
+Chipi  Chipi  Chapa  Chapa  Rubi  Rubi  Raba  Raba  
+*/
+```
