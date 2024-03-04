@@ -171,7 +171,6 @@ int main()
    <image src ="11_ЗЕЛ_create_Node.png">
     <image src ="11_ЗЕЛ_delete_element .png">
      <image src ="11_ЗЕЛ_destroy_list.png">
-      <image src ="11_ЗЕЛ_doubly_list.cpp">
        <image src ="11_ЗЕЛ_main.png">
         <image src ="11_ЗЕЛ_prin_list.png">
          <image src ="11_ЗЕЛ_restore_list_from_file.png">
