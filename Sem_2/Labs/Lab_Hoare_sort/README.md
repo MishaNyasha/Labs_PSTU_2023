@@ -86,7 +86,7 @@ int main()
 }
 ```
 # 2) Блок-схема
- <image src ="Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_creat_arr.png">
+ <image src ="Hoare_sort_creat_arr.png">
   <image src ="Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_main.png">
    <image src ="Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_menu.png">
     <image src ="Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_partition.png">
