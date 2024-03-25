@@ -1,4 +1,6 @@
-# 1) Код программы
+# 1) Задание
+## Реализовать сортировку Хоара
+# 2) Код программы
 ```cpp
 #include <iostream>
 using namespace std;
@@ -85,7 +87,7 @@ int main()
     return 0;
 }
 ```
-# 2) Блок-схема
+# 3) Блок-схема
  <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_creat_arr.png">
   <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_main.png">
    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_menu.png">
@@ -93,7 +95,7 @@ int main()
      <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_quickSort.png">
       <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hoare_sort/diagrams/Hoare_sort_show_array.png">
   
-# 3) Тесты
+# 4) Тесты
 ```cpp
 /*
     1 Test
