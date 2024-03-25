@@ -24,7 +24,10 @@ int partition(int arr[], int low, int high)
 
     for (int i = low+1; i <= high; i++)
     {
-        if (arr[i] < pivot) { num++; }
+        if (arr[i] < pivot) 
+        { 
+            num++; 
+        }
     }
 
     int pos = low + num;
