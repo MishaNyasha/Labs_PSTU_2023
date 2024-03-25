@@ -190,7 +190,7 @@ int main()
         <image src ="11_ЗЕЛ_print_list.png">
          <image src ="11_ЗЕЛ_restore_stack_from_file.png">
           <image src ="11_ЗЕЛ_struct_node.png">
-             <image src ="11_ЗЕЛ_struct_node.png">
+             <image src ="11_ЗЕЛ_write_list_in_file.png">
       
 # 3) Тесты
 ```cpp
