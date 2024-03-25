@@ -59,7 +59,10 @@ void countsort(int arr[], const int SIZE)
     int max = arr[0];
     for (int i = 0; i < SIZE; i++)
     {
-        if (arr[i] > max) { max = arr[i]; }
+        if (arr[i] > max) 
+        {
+            max = arr[i]; 
+        }
     }
     count = new int[max + 1];
     for (int i = 0; i <= max; ++i) 
