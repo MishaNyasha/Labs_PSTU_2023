@@ -1,4 +1,10 @@
-# 1) Код программы
+# 1) Задание
+## Реализовать четыре сортировки
+- Блочную
+- Слиянием
+- Быструю
+- Подсчётом
+# 2) Код программы
 ```cpp
 #include <iostream>
 using namespace std;
@@ -223,7 +229,7 @@ int main()
     return 0;
 }
 ```
-# 2) Блок-схема
+# 3) Блок-схема
 ## Блочная сортировка
  <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_bucketsort.png">
      
@@ -249,7 +255,7 @@ int main()
 <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_main.png">
           
       
-# 3) Тесты
+# 4) Тесты
 ```cpp
 /*
     1 Test
