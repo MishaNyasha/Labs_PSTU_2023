@@ -227,20 +227,20 @@ int main()
 - Блочная сортировка
  <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_bucketsort.png">
 - Сортировка подсчетом
-   <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_countsort.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_countsort.png">
 - Сортировка слиянием
-    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_merge.png">
-    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_mergesort.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_merge.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_mergesort.png">
 - Быстрая сортировка
-      <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_partition.png">
-      <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_quicksort.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_partition.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_quicksort.png">
 - Меню
-        <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_menu.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_menu.png">
 - Функции, создающая и показывающая массив
-        <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_show_array.png">
-         <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_creat_arr.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_show_array.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_creat_arr.png">
 - Прикольная main - функция
-       <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_main.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_four_sorts/diagrams/four_sorts_main.png">
           
       
 # 3) Тесты
