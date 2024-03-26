@@ -14,7 +14,7 @@ float Division::ipart(int first, int second)
 {
     if (second == 0)
     {
-        cout << "Çíàìåíàòåëü ðàâåí íóëþ, ïîýòîìó âîò äåðæè: ";
+        cout << "Ð—Ð½Ð°Ð¼ÐµÐ½Ð°Ñ‚ÐµÐ»ÑŒ Ñ€Ð°Ð²ÐµÐ½ Ð½ÑƒÐ»ÑŽ, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð²Ð¾Ñ‚ Ð´ÐµÑ€Ð¶Ð¸: ";
         return 69;
     }
     float Razdelenii;
