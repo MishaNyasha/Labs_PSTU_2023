@@ -7,25 +7,25 @@ Student::Student()
 	full_name = "";
 	group = "";
 	GPA = 0;
-	cout << "Êîíñòðóêòîð áåç ïàðàìåòðîâ äëÿ îáúåêòà: " << this << "\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð±ÐµÐ· Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð² Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°: " << this << "\n";
 }
 Student::Student(string N, string K, float S)
 {
 	full_name = N;
 	group = K;
 	GPA = S;
-	cout << "Êîíñòðóêòîð ñ ïàðàìåòðàìè äëÿ îáúåêòà: " << this << "\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸ Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°: " << this << "\n";
 }
 Student::Student(const Student &t)
 {
 	full_name = t.full_name;
 	group = t.group;
 	GPA = t.GPA;
-	cout << "Êîíñòðóêòîð êîïèðîâàíèÿ äëÿ îáúåêòà: " << this << "\n";
+	cout << "ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°: " << this << "\n";
 }
 Student::~Student()
 {
-	cout << "Äåñòðóêòîð äëÿ îáúåêòà: " << this << "\n";
+	cout << "Ð”ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°: " << this << "\n";
 }
 string Student::get_full_name()
 {
@@ -53,8 +53,8 @@ void Student::set_GPA(float S)
 }
 void Student::show() const
 {
-	cout << "ÔÈÎ: " << full_name
-		 << "\nãðóïïà: " << group
-	     << "\nñðåäíèé áàëë: " << GPA << "\n\n";
+	cout << "Ð¤Ð˜Ðž: " << full_name
+		 << "\nÐ³Ñ€ÑƒÐ¿Ð¿Ð°: " << group
+	     << "\nÑÑ€ÐµÐ´Ð½Ð¸Ð¹ Ð±Ð°Ð»Ð»: " << GPA << "\n\n";
 }
 
