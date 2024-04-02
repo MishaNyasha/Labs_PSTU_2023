@@ -36,8 +36,8 @@ Time Time::operator+(const Time& t)
 }
 istream& operator>>(istream& in, Time& t)
 {
-	cout << "Ìèíóòû:  "; in >> t.min;
-	cout << "Ñåêóíäû: "; in >> t.sec;
+	cout << "ĞœĞ¸Ğ½ÑƒÑ‚Ñ‹:  "; in >> t.min;
+	cout << "Ğ¡ĞµĞºÑƒĞ½Ğ´Ñ‹: "; in >> t.sec;
 	return in;
 }
 ostream& operator<<(ostream& out, const Time& t)
