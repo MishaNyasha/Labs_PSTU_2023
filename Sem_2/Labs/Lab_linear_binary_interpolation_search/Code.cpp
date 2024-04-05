@@ -58,7 +58,7 @@ void linear_search(const int N, int arr[], int key)
     }
     else 
     {
-        cout << "Мы не нашли ключ " << key << " в массиве";
+        cout << "Ключа " << key << " в массиве нету";
     }
 }
 void binary_search(int arr[], int N, int key) 
