@@ -240,4 +240,4 @@ int main()
 */
 ```
 
-![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
+![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_linear_binary_interpolation_search/diagrams/Tank.gif))
