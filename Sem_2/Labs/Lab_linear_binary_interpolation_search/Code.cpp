@@ -4,9 +4,12 @@ using namespace std;
 void BubbleSort(int* array, int N)
 {
     int temp;
-    for(int i = 0; i < N; i++) {
-        for(int j = 0; j < N - 1; j++)  {
-            if(array[j] > array[j + 1]) {
+    for(int i = 0; i < N; i++) 
+    {
+        for(int j = 0; j < N - 1; j++)  
+	{
+            if(array[j] > array[j + 1]) 
+	    {
                 temp = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = temp;
@@ -68,11 +71,10 @@ void binary_search(int arr[], int N, int key)
 	while (low <= high) 
 	{
 		int mid = low + (high - low) / 2;
-
 		if (arr[mid] == key)
 		{
-            cout << "Ключ найден на позиции: " << mid + 1 << endl;			
-            break;
+            		cout << "Ключ найден на позиции: " << mid + 1 << endl;			
+            		break;
 		}
 		else if (arr[mid] < key) 
 		{
