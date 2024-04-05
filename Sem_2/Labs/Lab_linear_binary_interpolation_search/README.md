@@ -239,4 +239,5 @@ int main()
 Ключ 10 находится в ячейке 14
 */
 ```
-![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://tenor.com/ru/view/tank-doorbell-gif-4270331981742801224))
+
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
