@@ -5,26 +5,26 @@ using namespace std;
 int main()
 {
     system("chcp 1251 > Null");
-    cout << "×àñòü çàäàíèÿ ñâàçÿííàÿ ñ PAIR\n";
+    cout << "Ð§Ð°ÑÑ‚ÑŒ Ð·Ð°Ð´Ð°Ð½Ð¸Ñ ÑÐ²Ð°Ð·ÑÐ½Ð½Ð°Ñ Ñ PAIR\n";
     PAIR a(25, 100);
     a.update(250, 1000);
     cout << a << endl;
-    cout << "Ââåäèòå ïåðâîå è âòîðîå ÷èñëî äëÿ A\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ð¾Ðµ Ð¸ Ð²Ñ‚Ð¾Ñ€Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ A\n";
     cin >> a;
     cout << a;
-    cout << "Ââåäèòå ïåðâîå è âòîðîå ÷èñëî äëÿ B\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ð¾Ðµ Ð¸ Ð²Ñ‚Ð¾Ñ€Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ B\n";
     PAIR b(25, 300);
     cin >> b;
     cout << b;
     if (a > b) 
     {
-        cout << "A áîëüøå B" << endl;
+        cout << "A Ð±Ð¾Ð»ÑŒÑˆÐµ B" << endl;
     }
     else 
     {
-        cout << "B áîëüøå A" << endl;
+        cout << "B Ð±Ð¾Ð»ÑŒÑˆÐµ A" << endl;
     }
-    cout << "\n×àñòü çàäàíèÿ ñâàçÿííàÿ ñ FRACTION\n";
+    cout << "\nÐ§Ð°ÑÑ‚ÑŒ Ð·Ð°Ð´Ð°Ð½Ð¸Ñ ÑÐ²Ð°Ð·ÑÐ½Ð½Ð°Ñ Ñ FRACTION\n";
     FRACTION t(25, 0.5);
     cout << t;
     cin >> t;
