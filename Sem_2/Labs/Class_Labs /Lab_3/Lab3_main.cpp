@@ -15,15 +15,13 @@ int main()
 	cout << "Первый временной интервал: " << a << endl;
 	cout << "Вторая временной интервал: " << b << endl;
 	cout << "Сумма временных интервалов : " << c << endl;
-	int M = a.get_min(), N = b.get_min();
-	if (M = N)
+	if (a.get_min() == b.get_min() && a.get_sec() == b.get_sec())
 	{
-		cout << "! Временные интервалы равны !" << endl;
+		cout << "Временные интервалы равны" << endl;
 	}
 	else
 	{
 		cout << "! Временные интервалы не равны !" << endl;
 	}
-
 	return 0;
 }
