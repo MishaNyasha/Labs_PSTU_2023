@@ -163,18 +163,17 @@ int main()
 }
 ```
 # 3) Блок-схема
- <image src ="">
-  <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
-    <image src ="">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/Main.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/HashTable.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/GenerateName.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/class_HashTable%20.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/deleteRecord.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/displayCollisions.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/hashFunction.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/insertRecord.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/loadFromFile.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/saveToFile.png">
+    <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Lab_Hash/diagrams/struct_Record.png">
   
 # 4) Результат
 ```cpp
