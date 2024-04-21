@@ -380,13 +380,12 @@ public:
 #include <string> 
 #include <iostream> 
 using namespace std;
-class error //класс ошибка 
+class error
 {
 	string str;
-public:
-	//конструктор, инициирует атрибут str сообщением об ошибке 
+public: 
 	error(string s) { str = s; }
-	void what() { cout << str << endl; } //выводит значение атрибута str 
+	void what() { cout << str << endl; }
 };
 ```
 
