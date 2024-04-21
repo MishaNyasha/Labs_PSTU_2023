@@ -390,7 +390,11 @@ public:
 ```
 
 ## (3) UML - диаграмма
-<image src ="">
+### 1 вариант реализации
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_9/Method_1/UML_9CL.png">
+
+### 2 вариант реализации
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_9/Method_2/UML_9CL.png">
   
 ## (4) Тесты
 <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_9/Method_1/изображение_2024-04-21_215231461.png">
