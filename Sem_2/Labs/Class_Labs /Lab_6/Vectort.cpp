@@ -45,7 +45,6 @@ int& Vector::operator[](int index)
     else  
     {
         cout << "\nError! Index>size";
-        //returning a reference to ensure the function returns something
         return data[0];
     }
 }
