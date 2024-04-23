@@ -279,7 +279,7 @@ istream& operator >> (istream& in, Setn<T>& s)
 ```
 
 ## (3) UML - диаграмма
-<image src ="">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_7/diagrams/UML_7CL.png">
   
 ## (4) Тест
 <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_7/diagrams/изображение_2024-04-21_150459411.png">
