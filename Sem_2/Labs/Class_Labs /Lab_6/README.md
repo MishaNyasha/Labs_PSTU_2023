@@ -169,7 +169,7 @@ private:
 ```
 
 ## (3) UML - диаграмма
-<image src ="">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_6/UML_6CL.png">
   
 ## (4) Тест
 <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_5/изображение_2024-04-21_164258936.png">
