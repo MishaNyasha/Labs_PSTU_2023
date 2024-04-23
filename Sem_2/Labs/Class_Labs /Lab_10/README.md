@@ -352,7 +352,7 @@ int compare_times(const char* file_name1, int k1, const char* file_name2, int k2
 ```
 
 ## (3) UML - диаграмма
-<image src ="">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_10/UML_10CL.png">
   
 ## (4) Тест
 <image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_10/изображение_2024-04-22_155904931.png">
