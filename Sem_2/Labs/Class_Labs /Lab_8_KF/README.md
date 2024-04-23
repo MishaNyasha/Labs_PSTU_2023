@@ -1,447 +1,52 @@
-# Лабораторная работа №8 "Программа, управляемая событиями."
+# Лабораторная работа  No8
+# Программа, управляемая событиями.
 
-## Постановка задачи
+## (1) Задание
+1.  Определить иерархию пользовательских классов (см. лабораторную работу No5). Во главе иерархии должен стоять абстрактный класс с чисто виртуальными методами для ввода  и вывода информации об атрибутах объектов. 
+2.  Реализовать конструкторы, деструктор, операцию присваивания, селекторы и модификаторы.  
+3.  Определить класс-группу на основе структуры, указанной в варианте. 
+4.  Для группы реализовать конструкторы, деструктор, методы для добавления и удаления элементов в группу, метод для просмотра группы, перегрузить операцию для получения информации о размере группы. 
+5.  Определить класс Диалог – наследника группы, в котором реализовать методы для обработки событий. 
+6.  Добавить методы для обработки событий  группой и объектами пользовательских классов. 
+7.  Написать тестирующую программу. 
+8.  Нарисовать диаграмму классов и диаграмму объектов. 
+## Вариант 7
+- Базовый класс: 
+ЧЕЛОВЕК (Person) 
+Имя – string 
+Возраст – int 
 
-1. Определить иерархию пользовательских классов (см. лабораторную работу №5). Во главе иерархии должен стоять абстрактный класс с чисто виртуальными методами для ввода и вывода информации об атрибутах объектов.
-2. Реализовать конструкторы, деструктор, операцию присваивания, селекторы и модификаторы.
-3. Определить класс-группу на основе структуры, указанной в варианте.
-4. Для группы реализовать конструкторы, деструктор, методы для добавления и удаления элементов в группу, метод для просмотра группы, перегрузить операцию для получения информации о размере группы.
-5. Определить класс Диалог – наследника группы, в котором реализовать методы для обработки событий.
-6. Добавить методы для обработки событий группой и объектами пользовательских классов.
-7. Написать тестирующую программу.
-8. Нарисовать диаграмму классов и диаграмму объектов.
+- Производный класс:
+СОТРУДНИК (Emloyee) 
+Заработная плата – float 
+Должность - string 
+Группа – Список (List). 
+- Команды: 
+-  Создать группу (формат команды: m количество элементов группы). 
+-  Добавить элемент в группу (формат команды: +) 
+-  Удалить элемент из группы (формат команды -) 
+-  Вывести информацию об элементах группы (формат команды: s) 
+-  Вывести информацию об имени элемента с номером k (формат команды : z k, где k – целое число) 
+-  Конец работы (формат команды: q) 
 
-### 7 Вариант:
-
-Базовый класс:
-- ЧЕЛОВЕК (Person)
-- Имя – string
-- Возраст – int
-
-Производный класс:
-- СОТРУДНИК (Emloyee)
-- Заработная плата – double
-- Должность - string
-- Группа – Вектор (Vector).
-
-Команды:
-- Создать группу (формат команды: m количество элементов группы).
-- Добавить элемент в группу (формат команды: +).
-- Удалить элемент из группы (формат команды -).
-- Вывести информацию об элементах группы (формат команды: s).
-- Вывести информацию об имени элемента с номером k (формат команды : zk, где k целое число).
-- Конец работы (формат команды: q).
-
-## UML-диаграмма
-
-![uml](https://github.com/Yagirsk/Labs_PSTU_2023/blob/main/SEM2/LABS/1_CLASS/CLASS_8_F/images/uml.png)
-
-## Диаграмма объектов
-
-![object](https://github.com/Yagirsk/Labs_PSTU_2023/blob/main/SEM2/LABS/1_CLASS/CLASS_8_F/images/8.png)
-
-## Код программы
-
-`multilineComment.txt`
-```txt
-1. Определить иерархию пользовательских классов (см. лабораторную работу №5).
-Во главе иерархии должен стоять абстрактный класс с чисто виртуальными
-методами для ввода и вывода информации об атрибутах объектов.
-2. Реализовать конструкторы, деструктор, операцию присваивания, селекторы и
-модификаторы.
-3. Определить класс-группу на основе структуры, указанной в варианте.
-4. Для группы реализовать конструкторы, деструктор, методы для добавления и
-удаления элементов в группу, метод для просмотра группы, перегрузить операцию
-для получения информации о размере группы.
-5. Определить класс Диалог – наследника группы, в котором реализовать методы для
-обработки событий.
-6. Добавить методы для обработки событий группой и объектами пользовательских
-классов.
-7. Написать тестирующую программу.
-8. Нарисовать диаграмму классов и диаграмму объектов.
-
-
-Базовый класс:
-ЧЕЛОВЕК (Person)
-Имя – string
-Возраст – int
-
-Производный класс:
-СОТРУДНИК (Emloyee)
-Заработная плата – double
-Должность - string
-Группа – Вектор (Vector).
-
-Команды:
-- Создать группу (формат команды: m количество элементов группы).
-- Добавить элемент в группу (формат команды: +)
-- Удалить элемент из группы (формат команды -)
-- Вывести информацию об элементах группы (формат команды: s)
-- Вывести информацию об имени элемента с номером k (формат команды : zk, где k целое число)
-- Конец работы (формат команды: q)
-```
-
-`object.h`
+## (2) Реализация 
+- приколюшная main функция:
 ```cpp
-#pragma once
-#include "event.h"
-using namespace std;
-class Object
-{
-public:
-	Object();
-	virtual void Show() = 0;
-	virtual void Input() = 0;
-	virtual void HandleEvent(const TEvent& e) = 0;
-	virtual ~Object();
-};
-```
-
-`object.cpp`
-```cpp
-#pragma once
-#include "object.h"
-using namespace std;
-Object::Object() {}
-Object::~Object() {}
-```
-
-`person.h`
-```cpp
-#pragma once
-#include "object.h"
-#include "event.h"
-using namespace std;
-class Person :	public Object
-{
-public:
-	Person();
-	virtual ~Person();
-	void Show();
-	void Input();
-	Person(string, int);
-	Person(const Person&);
-	string getName() {return name;}
-	int getAge() {return age;}
-	void setName(string);
-	void setAge(int);
-	Person& operator=(const Person&);
-	virtual void HandleEvent(const TEvent& e);
-protected:
-	string name;
-	int age;
-};
-```
-
-`person.cpp`
-```cpp
-#pragma once
 #include <iostream>
 #include <string>
-#include "person.h"
-#include "event.h"
-using namespace std;
-Person::Person()
-{
-	name = "";
-	age = 0;
-}
-Person::~Person() {}
-Person::Person(string N, int A)
-{
-	name = N;
-	age = A;
-}
-Person::Person(const Person& person)
-{
-	name = person.name;
-	age = person.age;
-}
-void Person::setName(string N)
-{
-	name = N;
-}
-void Person::setAge(int A)
-{
-	age = A;
-}
-Person& Person::operator=(const Person& p)
-{
-	if (&p == this) return *this;
-	name = p.name;
-	age = p.age;
-	return *this;
-}
-void Person::HandleEvent(const TEvent& e)
-{
-	if (e.what == evMessage) //событие-сообщение
-	{
-		switch (e.command)
-		{
-		case cmNames: cout << "Имя = " << getName() << endl; break;
-		}
-	}
-}
-void Person::Show()
-{
-	cout << "\nИмя: " << name;
-	cout << "\nВозраст: " << age;
-	cout << "\n";
-}
-void Person::Input()
-{
-	cout << "\nВведите имя: "; cin >> name;
-	cout << "\nВведите возраст: "; cin >> age;
-}
-```
-
-`employee.h`
-```cpp
-#pragma once
-#include "person.h"
-using namespace std;
-class Employee : public Person
-{
-public:
-	Employee();
-	~Employee();
-	void Show();
-	void Input();
-	Employee(string, int, double, string);
-	Employee(const Employee&);
-	double getSalary() {return salary;}
-	string getPositionAtWork() {return positionAtWork;}
-	void setSalary(double);
-	void setPositionAtWork(string);
-	Employee& operator=(const Employee&);
-protected:
-	double salary;
-	string positionAtWork;
-};
-```
-
-`employee.cpp`
-```cpp
-#pragma once
-#include <iostream>
-#include <string>
-#include "employee.h"
-using namespace std;
-Employee::Employee() : Person()
-{
-	salary = 0;
-	positionAtWork = "";
-}
-Employee::~Employee() {}
-Employee::Employee(string N, int A, double S, string P) : Person(N, A)
-{
-	salary = S;
-	positionAtWork = P;
-}
-Employee::Employee(const Employee& E)
-{
-	name = E.name;
-	age = E.age;
-	salary = E.salary;
-	positionAtWork = E.positionAtWork;
-}
-void Employee::setSalary(double S)
-{
-	salary = S;
-}
-void Employee::setPositionAtWork(string P)
-{
-	positionAtWork = P;
-}
-Employee& Employee::operator=(const Employee& E)
-{
-	if (&E == this) return *this;
-	name = E.name;
-	age = E.age;
-	salary = E.salary;
-	positionAtWork = E.positionAtWork;
-	return *this;
-}
-void Employee::Show()
-{
-	cout << "\nИмя: " << name;
-	cout << "\nВозраст: " << age;
-	cout << "\nЗаработная плата: " << salary;
-	cout << "\nДолжность: " << positionAtWork;
-	cout << "\n";
-}
-void Employee::Input()
-{
-	cout << "\nВведите имя: "; cin >> name;
-	cout << "\nВведите возраст: "; cin >> age;
-	cout << "\nВведите заработную плату: "; cin >> salary;
-	cout << "\nВведите должность: "; cin >> positionAtWork;
-}
-```
-
-`vector.h`
-```cpp
-#pragma once
-#include "event.h"
-#include "object.h"
-class Vector
-{
-public:
-	Vector();
-	Vector(int);
-	~Vector();
-	void Add();
-	void Del();
-	void Show();
-	int operator()();
-	virtual void HandleEvent(const TEvent& e);
-protected:
-	Object** beg;
-	int size;
-	int cur;
-};
-```
-
-`vector.cpp`
-```cpp
-#pragma once
-#include <iostream>
-#include <string>
-#include "object.h"
-#include "vector.h"
-#include "person.h"
-#include "employee.h"
-using namespace std;
-Vector::Vector()
-{
-	beg = nullptr;
-	size = 0;
-	cur = 0;
-}
-Vector::~Vector()
-{
-	if (beg != 0)delete[] beg;
-	beg = 0;
-}
-Vector::Vector(int n)
-{
-	beg = new Object * [n];
-	cur = 0;
-	size = n;
-}
-void Vector::Add()
-{
-	Object* p;
-	cout << "1. Человек" << endl;
-	cout << "2. Сотрудник" << endl;
-	int y;
-	cin >> y;
-	if (y == 1)
-	{
-		Person* a = new Person;
-		a->Input();
-		p = a;
-		if (cur < size)
-		{
-			beg[cur] = p;
-			cur++;
-		}
-	}
-	else if (y == 2)
-	{
-		Employee* b = new Employee;
-		b->Input();
-		p = b;
-		if (cur < size)
-		{
-			beg[cur] = p;
-			cur++;
-		}
-	}
-	else return;
-}
-void Vector::Show()
-{
-	if (cur == 0) cout << "Пусто" << endl;
-	Object** p = beg;
-	for (int i = 0; i < cur; i++)
-	{
-		(*p)->Show();
-		p++;
-	}
-}
-int Vector::operator ()()
-{
-	return cur;
-}
-void Vector::HandleEvent(const TEvent& e)
-{
-	if (e.what == evMessage)
-	{
-		Object** p = beg;
-		for (int i = 0; i < cur; i++)
-		{
-			(*p)->HandleEvent(e);
-			p++;
-		}
-	}
-}
-void Vector::Del()
-{
-	if (cur == 0) return;
-	cur--;
-}
-```
-
-`event.h`
-```cpp
-#pragma once
-const int evNothing = 0; //пустое событие
-const int evMessage = 100; //непустое событие
-const int cmAdd = 1; //добавить объект в группу
-const int cmDel = 2; //удалить объект из группы
-const int cmNames = 3; //вывести атрибут всех объектов
-const int cmShow = 4; //вывести всю группу
-const int cmOneName = 5; // одно имя
-const int cmMake = 6; //создать группу
-const int cmQuit = 101; //выход
-struct TEvent
-{
-	int what;
-	union
-	{
-		int command;
-		struct
-		{
-			int message;
-			int a;
-		};
-	};
-};
-```
-
-`dialog.h`
-```cpp
-#pragma once
+#include "dialog.h"
 #include "event.h"
 #include "vector.h"
-class Dialog : public Vector
+#include "object.h"
+int main()
 {
-public:
-	Dialog();
-	virtual ~Dialog();
-	virtual void GetEvent(TEvent& event);
-	virtual int Execute();
-	virtual void HandleEvent(TEvent& event);
-	virtual void ClearEvent(TEvent& event);
-	int Valid();
-	void EndExec();
-protected:
-	int EndState;
-};
+	system("chcp 1251 > null");
+	Dialog D;
+	D.Execute();
+	return 0;
+}
 ```
-
-`dialog.cpp`
+- dialog.cpp
 ```cpp
 #pragma once
 #include <iostream>
@@ -583,35 +188,366 @@ void Dialog::HandleEvent(TEvent& event)
 	};
 }
 ```
-
-`main.cpp`
+- dialog.h
 ```cpp
-#include <iostream>
-#include <string>
-#include "dialog.h"
+#pragma once
 #include "event.h"
 #include "vector.h"
-#include "object.h"
-int main()
+class Dialog : public Vector
 {
-	system("chcp 1251 > null");
-	Dialog D;
-	D.Execute();
-	return 0;
+public:
+	Dialog();
+	virtual ~Dialog();
+	virtual void GetEvent(TEvent& event);
+	virtual int Execute();
+	virtual void HandleEvent(TEvent& event);
+	virtual void ClearEvent(TEvent& event);
+	int Valid();
+	void EndExec();
+protected:
+	int EndState;
+};
+```
+- event.h
+```cpp
+#pragma once
+const int evNothing = 0; //пустое событие
+const int evMessage = 100; //непустое событие
+const int cmAdd = 1; //добавить объект в группу
+const int cmDel = 2; //удалить объект из группы
+const int cmNames = 3; //вывести атрибут всех объектов
+const int cmShow = 4; //вывести всю группу
+const int cmOneName = 5; // одно имя
+const int cmMake = 6; //создать группу
+const int cmQuit = 101; //выход
+struct TEvent
+{
+	int what;
+	union
+	{
+		int command;
+		struct
+		{
+			int message;
+			int a;
+		};
+	};
+};
+```
+- Vector.cpp
+```cpp
+#pragma once
+#include <iostream>
+#include <string>
+#include "object.h"
+#include "vector.h"
+#include "person.h"
+#include "employee.h"
+using namespace std;
+Vector::Vector()
+{
+	beg = nullptr;
+	size = 0;
+	cur = 0;
+}
+Vector::~Vector()
+{
+	if (beg != 0)delete[] beg;
+	beg = 0;
+}
+Vector::Vector(int n)
+{
+	beg = new Object * [n];
+	cur = 0;
+	size = n;
+}
+void Vector::Add()
+{
+	Object* p;
+	cout << "1. Человек" << endl;
+	cout << "2. Сотрудник" << endl;
+	int y;
+	cin >> y;
+	if (y == 1)
+	{
+		Person* a = new Person;
+		a->Input();
+		p = a;
+		if (cur < size)
+		{
+			beg[cur] = p;
+			cur++;
+		}
+	}
+	else if (y == 2)
+	{
+		Employee* b = new Employee;
+		b->Input();
+		p = b;
+		if (cur < size)
+		{
+			beg[cur] = p;
+			cur++;
+		}
+	}
+	else return;
+}
+void Vector::Show()
+{
+	if (cur == 0) cout << "Пусто" << endl;
+	Object** p = beg;
+	for (int i = 0; i < cur; i++)
+	{
+		(*p)->Show();
+		p++;
+	}
+}
+int Vector::operator ()()
+{
+	return cur;
+}
+void Vector::HandleEvent(const TEvent& e)
+{
+	if (e.what == evMessage)
+	{
+		Object** p = beg;
+		for (int i = 0; i < cur; i++)
+		{
+			(*p)->HandleEvent(e);
+			p++;
+		}
+	}
+}
+void Vector::Del()
+{
+	if (cur == 0) return;
+	cur--;
 }
 ```
+- Vector.h
+```cpp
+#pragma once
+#include "event.h"
+#include "object.h"
+class Vector
+{
+public:
+	Vector();
+	Vector(int);
+	~Vector();
+	void Add();
+	void Del();
+	void Show();
+	int operator()();
+	virtual void HandleEvent(const TEvent& e);
+protected:
+	Object** beg;
+	int size;
+	int cur;
+};
+```
+- employee.cpp
+```cpp
+#pragma once
+#include <iostream>
+#include <string>
+#include "employee.h"
+using namespace std;
+Employee::Employee() : Person()
+{
+	salary = 0;
+	positionAtWork = "";
+}
+Employee::~Employee() {}
+Employee::Employee(string N, int A, double S, string P) : Person(N, A)
+{
+	salary = S;
+	positionAtWork = P;
+}
+Employee::Employee(const Employee& E)
+{
+	name = E.name;
+	age = E.age;
+	salary = E.salary;
+	positionAtWork = E.positionAtWork;
+}
+void Employee::setSalary(double S)
+{
+	salary = S;
+}
+void Employee::setPositionAtWork(string P)
+{
+	positionAtWork = P;
+}
+Employee& Employee::operator=(const Employee& E)
+{
+	if (&E == this) return *this;
+	name = E.name;
+	age = E.age;
+	salary = E.salary;
+	positionAtWork = E.positionAtWork;
+	return *this;
+}
+void Employee::Show()
+{
+	cout << "\nИмя: " << name;
+	cout << "\nВозраст: " << age;
+	cout << "\nЗаработная плата: " << salary;
+	cout << "\nДолжность: " << positionAtWork;
+	cout << "\n";
+}
+void Employee::Input()
+{
+	cout << "\nВведите имя: "; cin >> name;
+	cout << "\nВведите возраст: "; cin >> age;
+	cout << "\nВведите заработную плату: "; cin >> salary;
+	cout << "\nВведите должность: "; cin >> positionAtWork;
+}
+```
+- employee.h
+```cpp
+#pragma once
+#include "person.h"
+using namespace std;
+class Employee : public Person
+{
+public:
+	Employee();
+	~Employee();
+	void Show();
+	void Input();
+	Employee(string, int, double, string);
+	Employee(const Employee&);
+	double getSalary() {return salary;}
+	string getPositionAtWork() {return positionAtWork;}
+	void setSalary(double);
+	void setPositionAtWork(string);
+	Employee& operator=(const Employee&);
+protected:
+	double salary;
+	string positionAtWork;
+};
+```
+- person.cpp
+```cpp
+#pragma once
+#include <iostream>
+#include <string>
+#include "person.h"
+#include "event.h"
+using namespace std;
+Person::Person()
+{
+	name = "";
+	age = 0;
+}
+Person::~Person() {}
+Person::Person(string N, int A)
+{
+	name = N;
+	age = A;
+}
+Person::Person(const Person& person)
+{
+	name = person.name;
+	age = person.age;
+}
+void Person::setName(string N)
+{
+	name = N;
+}
+void Person::setAge(int A)
+{
+	age = A;
+}
+Person& Person::operator=(const Person& p)
+{
+	if (&p == this) return *this;
+	name = p.name;
+	age = p.age;
+	return *this;
+}
+void Person::HandleEvent(const TEvent& e)
+{
+	if (e.what == evMessage) //событие-сообщение
+	{
+		switch (e.command)
+		{
+		case cmNames: cout << "Имя = " << getName() << endl; break;
+		}
+	}
+}
+void Person::Show()
+{
+	cout << "\nИмя: " << name;
+	cout << "\nВозраст: " << age;
+	cout << "\n";
+}
+void Person::Input()
+{
+	cout << "\nВведите имя: "; cin >> name;
+	cout << "\nВведите возраст: "; cin >> age;
+}
+```
+- person.h
+```cpp
+#pragma once
+#include "object.h"
+#include "event.h"
+using namespace std;
+class Person :	public Object
+{
+public:
+	Person();
+	virtual ~Person();
+	void Show();
+	void Input();
+	Person(string, int);
+	Person(const Person&);
+	string getName() {return name;}
+	int getAge() {return age;}
+	void setName(string);
+	void setAge(int);
+	Person& operator=(const Person&);
+	virtual void HandleEvent(const TEvent& e);
+protected:
+	string name;
+	int age;
+};
+```
+- object.cpp
+```cpp
+#pragma once
+#include "object.h"
+using namespace std;
+Object::Object() {}
+Object::~Object() {}
+```
+- object.h
+```cpp
+#pragma once
+#include "event.h"
+using namespace std;
+class Object
+{
+public:
+	Object();
+	virtual void Show() = 0;
+	virtual void Input() = 0;
+	virtual void HandleEvent(const TEvent& e) = 0;
+	virtual ~Object();
+};
+```
 
-## Тесты текстом
+## (3) UML - диаграмма
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_8_KF/diagrams/UML_CL8.png">
+  
+## (4) Тест
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_8_KF/diagrams/Test1.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_8_KF/diagrams/Test2.png">
+<image src ="https://github.com/MishaNyasha/Labs_PSTU_2023/blob/main/Sem_2/Labs/Class_Labs%20/Lab_8_KF/diagrams/Test3.png">
 
-
-## Тесты скриншоты
-
-![Скриншот номер 1](https://github.com/Yagirsk/Labs_PSTU_2023/blob/main/SEM2/LABS/1_CLASS/CLASS_8_F/images/1.png)
-![Скриншот номер 2](https://github.com/Yagirsk/Labs_PSTU_2023/blob/main/SEM2/LABS/1_CLASS/CLASS_8_F/images/2.png)
-![Скриншот номер 3](https://github.com/Yagirsk/Labs_PSTU_2023/blob/main/SEM2/LABS/1_CLASS/CLASS_8_F/images/3.png)
-
-## Ответы на вопросы
-
+## (5) Ответы на вопросы
 **1. Что такое класс-группа? Привести примеры таких классов.**
 
 `Класс-группа (или группа классов) представляет собой совокупность связанных классов, которые имеют общие характеристики или наследуются от одного базового класса. Это позволяет организовать иерархию классов для более удобного управления и структурирования кода.`
