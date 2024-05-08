@@ -1,6 +1,5 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include <QPainter>
 #include <QApplication>
@@ -8,11 +7,12 @@
 #include <QFont>
 #include <iostream>
 #include <cmath>
-
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsTextItem>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
 class Node
 {
 public:
@@ -32,26 +32,55 @@ void preorder(Node* root);
 void inorder(Node* root);
 void postorder(Node* root);
 void deleteTree(Node* &root);
-void balanceTree(Node* &root);
-class BinaryTreeView : public QWidget 
+Node* balanceTree(Node* root);
+class BinaryTreeView : public QGraphicsView
 {
 public:
-    BinaryTreeView(Node* root, QWidget* parent = nullptr) : QWidget(parent), m_root(root) {}
-    void paintEvent(QPaintEvent* event) override
+    BinaryTreeView(Node* root, QWidget* parent = nullptr) : QGraphicsView(parent), m_root(root)
     {
-        QPainter painter(this);
-        drawTree(m_root, painter, 630, 50);
+        scene = new QGraphicsScene(this);
+        setScene(scene);
+        drawTree(m_root, 630, 50);
     }
-    void drawTree(Node* node, QPainter& painter, int x, int y);
 private:
+    QGraphicsScene* scene;
     Node* m_root;
-    int getDepth(Node* node) {
-        if (node == nullptr) {
+    int getDepth(Node* node) 
+    {
+        if (node == nullptr) 
+        {
             return 0;
         }
         int leftDepth = getDepth(node->left);
         int rightDepth = getDepth(node->right);
         return 1 + std::max(leftDepth, rightDepth);
+    }
+    void drawTree(Node* node, int x, int y)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+        QPen linePen(Qt::magenta);
+        linePen.setWidth(2);
+        QBrush circleBrush(Qt::white);
+        scene->addEllipse(x, y, 40, 40, linePen, circleBrush);
+        int offsetX_l = 30 * pow(2, getDepth(node->left) - 1);
+        int offsetX_r = 30 * pow(2, getDepth(node->right) - 1);
+        int offsetY = 70;
+        QFont font("Arial", 12);
+        QGraphicsTextItem* textItem = scene->addText(QString::number(node->key), font);
+        textItem->setPos(x, y);
+        if (node->left != nullptr)
+        {
+            scene->addLine(x + 20, y + 40, x - offsetX_l + 20, y + offsetY, linePen);
+            drawTree(node->left, x - offsetX_l, y + offsetY);
+        }
+        if (node->right != nullptr)
+        {
+            scene->addLine(x + 40, y + 20, x + offsetX_r + 20, y + offsetY, linePen);
+            drawTree(node->right, x + offsetX_r, y + offsetY);
+        }
     }
 };
 class MainWindow : public QMainWindow
@@ -75,5 +104,4 @@ private:
     BinaryTreeView* view;
     void updateTreeView();
 };
-
-#endif
+#endif // MAINWINDOW_H
