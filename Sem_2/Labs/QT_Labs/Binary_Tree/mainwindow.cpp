@@ -3,76 +3,130 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    view = nullptr;
 }
 MainWindow::~MainWindow()
 {
     delete ui;
+    if (view != nullptr)
+        delete view;
 }
-//---Создание дерева
+void preorder(Node* root, QString& result)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    result += QString::number(root->key) + " ";
+    preorder(root->left, result);
+    preorder(root->right, result);
+}
+void inorder(Node* root, QString& result)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    inorder(root->left, result);
+    result += QString::number(root->key) + " ";
+    inorder(root->right, result);
+}
+void postorder(Node* root, QString& result)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    postorder(root->left, result);
+    postorder(root->right, result);
+    result += QString::number(root->key) + " ";
+}
+void MainWindow::updateTreeView()
+{
+    if (view != nullptr)
+    {
+        delete view;
+    }
+    view = new BinaryTreeView(root, this);
+    view->resize(1000, 530);
+    view->show();
+}
 void MainWindow::on_ButtonCreateTree_clicked()
 {
-    root = new Node(5);
-    for(int i = 0; i < 10; i++)
+    root = new Node(rand()%100-rand()%100);
+    for(int i = 0; i < rand()%100; i++)
     {
-        insert(root, (rand()%10));
+        insert(root, (rand()%100-rand()%100));
     }
-    BinaryTreeView* view = new BinaryTreeView(root);
-    view->resize(1300, 800);
-    view->show();
+    updateTreeView();
     ui->statusbar->showMessage("Дерево успешно создано!");
 }
-//---Вставка узла
 void MainWindow::on_InsertNode_clicked()
 {
     QString value = ui->lineEdit->text();
     int key = value.toInt();
     insert(root, key);
-    update();
+    updateTreeView();
+    ui->lineEdit->clear();
     ui->statusbar->showMessage("Узел успешно вставлен!");
 }
-//---Удаление узла
 void MainWindow::on_DeleteNode_clicked()
 {
     QString value = ui->lineEdit_2->text();
     int key = value.toInt();
     deleteNode(root, key);
-    update();
+    updateTreeView();
+    ui->lineEdit_2->clear();
     ui->statusbar->showMessage("Узел успешно удалён!");
 }
-//---Создание пустого дерева
 void MainWindow::on_ButtonCreateTreeNULL_clicked()
 {
     root = new Node(0);
-    BinaryTreeView* view = new BinaryTreeView(root);
-    view->resize(1300, 800);
-    view->show();
+    updateTreeView();
     ui->statusbar->showMessage("Пустое дерево успешно создано!");
 }
-//---Вывод в консоль алгоритмов обхода
 void MainWindow::on_Button_Pre_In_Post_Order_clicked()
 {
+    ui->textBrowser->clear();
+    QString result;
+    result = "preorder: ";
+    preorder(root, result);
+    ui->textBrowser->append(result);
+
+    result = "inorder: ";
+    inorder(root, result);
+    ui->textBrowser->append(result);
+
+    result = "postorder: ";
+    postorder(root, result);
+    ui->textBrowser->append(result);
     ui->statusbar->showMessage("Алгоритмы: прямой, симметричный, обратный успешно выполнены!");
-    std::cout << std::endl << "preorder: ";
-    preorder(root);
-    std::cout << std::endl << "inorder: ";
-    inorder(root);
-    std::cout << std::endl << "postorder: ";
-    postorder(root);
-    std::cout << std::endl;
 }
-//---Балансировка дерева
 void MainWindow::on_ButtonBalanceTree_clicked()
 {
-    balanceTree(root);
-    ui->statusbar->showMessage("Дерево успешно сбалансировано!");
+    if (root == nullptr)
+    {
+        ui->statusbar->showMessage("Дерево пусто!");
+        return;
+    }
+
+    Node* newRoot = balanceTree(root);
+    if (newRoot != nullptr) {
+        deleteTree(root);
+        root = newRoot;
+        updateTreeView();
+        ui->statusbar->showMessage("Дерево успешно сбалансировано!");
+    } else {
+        ui->statusbar->showMessage("Ошибка при балансировке дерева!");
+    }
 }
-//---Удаление Дерева
 void MainWindow::on_ButtonDeleteTree_clicked()
 {
     deleteTree(root);
-    ui->statusbar->showMessage("Дерево успешно уничтоженно!");
+    updateTreeView();
+    ui->statusbar->showMessage("Дерево успешно уничтожено!");
 }
-//---Поиск максимального элемента
+
 Node* findMax(Node* node)
 {
     if (node == nullptr)
