@@ -11,6 +11,16 @@ MainWindow::~MainWindow()
     if (view != nullptr)
         delete view;
 }
+void MainWindow::updateTreeView()
+{
+    if (view != nullptr)
+    {
+        delete view;
+    }
+    view = new BinaryTreeView(root, this);
+    view->resize(1000, 530);
+    view->show();
+}
 void preorder(Node* root, QString& result)
 {
     if (root == nullptr)
@@ -41,15 +51,114 @@ void postorder(Node* root, QString& result)
     postorder(root->right, result);
     result += QString::number(root->key) + " ";
 }
-void MainWindow::updateTreeView()
+void deleteTree(Node* &root)
 {
-    if (view != nullptr)
+    if (root == nullptr)
     {
-        delete view;
+        return;
     }
-    view = new BinaryTreeView(root, this);
-    view->resize(1000, 530);
-    view->show();
+    deleteTree(root->left);
+    deleteTree(root->right);
+    delete root;
+    root = nullptr;
+}
+Node* findMin(Node* node)
+{
+    Node* current = node;
+    while (current->left != nullptr) {
+        current = current->left;
+    }
+    return current;
+}
+void deleteNode(Node* &root, int key)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    if (key < root->key)
+    {
+        deleteNode(root->left, key);
+    } else if (key > root->key)
+    {
+        deleteNode(root->right, key);
+    } else {
+        if (root->left == nullptr)
+        {
+            Node* temp = root->right;
+            delete root;
+            root = temp;
+        } else if (root->right == nullptr)
+        {
+            Node* temp = root->left;
+            delete root;
+            root = temp;
+        } else {
+            Node* temp = findMin(root->right);
+            root->key = temp->key;
+            deleteNode(root->right, temp->key);
+        }
+    }
+}
+void insert(Node* root, int key)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    if (key < root->key)
+    {
+        if (root->left == nullptr)
+        {
+            root->left = new Node(key);
+        } else
+        {
+            insert(root->left, key);
+        }
+    } else
+    {
+        if (root->right == nullptr)
+        {
+            root->right = new Node(key);
+        } else
+        {
+            insert(root->right, key);
+        }
+    }
+}
+void storeInorder(Node* root, std::vector<int> &values)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+    storeInorder(root->left, values);
+    values.push_back(root->key);
+    storeInorder(root->right, values);
+}
+Node* buildBalancedTree(const std::vector<int> &values, int start, int end)
+{
+    if (start > end)
+    {
+        return nullptr;
+    }
+    int mid = (start + end) / 2;
+    Node* root = new Node(values[mid]);
+    root->left = buildBalancedTree(values, start, mid - 1);
+    root->right = buildBalancedTree(values, mid + 1, end);
+    return root;
+}
+Node* balanceTree(Node* root)
+{
+    std::vector<int> values;
+    storeInorder(root, values);
+    if (values.empty())
+    {
+        return nullptr;
+    }
+    std::sort(values.begin(), values.end());
+    return buildBalancedTree(values, 0, values.size() - 1);
 }
 void MainWindow::on_ButtonCreateTree_clicked()
 {
@@ -111,12 +220,15 @@ void MainWindow::on_ButtonBalanceTree_clicked()
     }
 
     Node* newRoot = balanceTree(root);
-    if (newRoot != nullptr) {
+    if (newRoot != nullptr)
+    {
         deleteTree(root);
         root = newRoot;
         updateTreeView();
         ui->statusbar->showMessage("Дерево успешно сбалансировано!");
-    } else {
+    }
+    else
+    {
         ui->statusbar->showMessage("Ошибка при балансировке дерева!");
     }
 }
@@ -126,7 +238,6 @@ void MainWindow::on_ButtonDeleteTree_clicked()
     updateTreeView();
     ui->statusbar->showMessage("Дерево успешно уничтожено!");
 }
-
 Node* findMax(Node* node)
 {
     if (node == nullptr)
