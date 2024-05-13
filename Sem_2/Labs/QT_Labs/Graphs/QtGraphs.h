@@ -88,6 +88,9 @@ private:
     bool sel = 0;
     Node* sNode;
 
+    void backtrackTSP(Graph& graph, int start, vector<int>& tour, vector<int>& nodes, double distance, vector<int>& shortestPath, double& shortestDistance);
+
+    void on_pushButton_KomiVoyager_clicked();
     void on_pushButton_AddNode_clicked();
     void on_pushButton_AddEdge_clicked();
     void on_pushButton_DeleteNode_clicked();
@@ -99,5 +102,5 @@ private:
     void on_pushButton_randGraph_clicked();
     void on_pushButton_UpdateEdge_clicked();
     void on_pushButton_Tablica_clicked();
-    void on_pushButton_CLEAR_clicked();
+    void on_pushButton_CLEAR_clicked();//функции выполняемые при нажатии на соответствующие кнопки, конец
 };
