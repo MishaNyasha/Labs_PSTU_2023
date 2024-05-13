@@ -41,12 +41,8 @@ public:
     void addEdge(int fromData, int toData, int weight);
     void clearGraph();
     void updateEdgeWeight(int startData, int endData, int newWeight);
-
     void removeNode(int data);
     void removeEdge(int startData, int endData);
-
-    vector<int> solveTSP(int startNodeData);
-    void tspHelper(int currentNodeData, unordered_set<int>& visited, vector<int>& currentPath, int currentCost, int& bestCost, vector<int>& bestPath, int startNodeData);
 };
 class QtGraphs : public QMainWindow
 {
@@ -55,13 +51,11 @@ public:
     QtGraphs(QWidget* parent = nullptr);
     ~QtGraphs();
     Graph graph;
-
 protected:
     void paintEvent(QPaintEvent* event) override;
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
-
 private:
     Ui::QtGraphs ui;
     Node* m_selectedNode;
@@ -87,10 +81,6 @@ private:
     }
     bool sel = 0;
     Node* sNode;
-
-    void backtrackTSP(Graph& graph, int start, vector<int>& tour, vector<int>& nodes, double distance, vector<int>& shortestPath, double& shortestDistance);
-
-    void on_pushButton_KomiVoyager_clicked();
     void on_pushButton_AddNode_clicked();
     void on_pushButton_AddEdge_clicked();
     void on_pushButton_DeleteNode_clicked();
@@ -102,5 +92,5 @@ private:
     void on_pushButton_randGraph_clicked();
     void on_pushButton_UpdateEdge_clicked();
     void on_pushButton_Tablica_clicked();
-    void on_pushButton_CLEAR_clicked();//функции выполняемые при нажатии на соответствующие кнопки, конец
+    void on_pushButton_CLEAR_clicked();
 };
