@@ -1,4 +1,4 @@
-#include "QtGraphs.h"
+include "QtGraphs.h"
 #include <QPainter>
 #include <vector>
 #include <QLineEdit>
@@ -190,7 +190,7 @@ void Graph::removeEdge(int startData, int endData)
         if (it != startNode->edges_to_node.end())
         {
             startNode->edges_to_node.erase(it);
-            delete edgeToRemove; // Освобождение памяти
+            delete edgeToRemove;
         }
     }
 }
@@ -207,7 +207,6 @@ vector<int> Graph::Dijkstra(int startData, int endData)
     dist[startData] = 0;
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({ 0, startData });
-
     while (!pq.empty())
     {
         int u = pq.top().second;
@@ -231,7 +230,6 @@ vector<int> Graph::Dijkstra(int startData, int endData)
         result.push_back(at);
     }
     reverse(result.begin(), result.end());
-
     if (result[0] == endData) { result.pop_back(); }
     return result;
 }
@@ -250,7 +248,6 @@ QtGraphs::QtGraphs(QWidget* parent)
     connect(ui.pushButton_randGraph, &QPushButton::clicked, this, &QtGraphs::on_pushButton_randGraph_clicked);
     connect(ui.pushButton_UpdateEdge, &QPushButton::clicked, this, &QtGraphs::on_pushButton_UpdateEdge_clicked);
     connect(ui.pushButton_CLEAR, &QPushButton::clicked, this, &QtGraphs::on_pushButton_CLEAR_clicked);
-    connect(ui.pushButton_KomiVoyager, &QPushButton::clicked, this, &QtGraphs::on_pushButton_KomiVoyager_clicked);
     connect(ui.pushButton_Tablica, &QPushButton::clicked, this, &QtGraphs::on_pushButton_Tablica_clicked);
 }
 QtGraphs::~QtGraphs()
@@ -262,7 +259,7 @@ void QtGraphs::paintEvent(QPaintEvent* event)
     QFont font = painter.font();
     font.setPointSize(16);
     painter.setFont(font);
-    painter.setPen(QPen(Qt::black, 2)); // Черный цвет для текста
+    painter.setPen(QPen(Qt::black, 2));
     for (const auto& pair : graph.nodes_map) {
         Node* node = pair.second;
         for (Edge* edge : node->edges_to_node) {
@@ -353,10 +350,8 @@ void QtGraphs::on_pushButton_AddNode_clicked()
     update();
     ui.statusbar->showMessage("Вершина добавлена!");
 }
-void QtGraphs::on_pushButton_AddEdge_clicked() 
-{
-    if (ui.LineEdit_FirstNode->text().isEmpty() or ui.LineEdit_SecondNode->text().isEmpty() or ui.lineEdit_Weight->text().isEmpty()) 
-    {
+void QtGraphs::on_pushButton_AddEdge_clicked() {
+    if (ui.LineEdit_FirstNode->text().isEmpty() or ui.LineEdit_SecondNode->text().isEmpty() or ui.lineEdit_Weight->text().isEmpty()) {
         return;
     }
     int fromNode = ui.LineEdit_FirstNode->text().toInt();
@@ -386,8 +381,7 @@ void QtGraphs::on_pushButton_DeleteNode_clicked()
 }
 void QtGraphs::on_pushButton_DeleteEdge_clicked()
 {
-    if (ui.LineEdit_FirstNode->text().isEmpty() or ui.LineEdit_SecondNode->text().isEmpty()) 
-    {
+    if (ui.LineEdit_FirstNode->text().isEmpty() or ui.LineEdit_SecondNode->text().isEmpty()) {
         return;
     }
     int s = ui.LineEdit_FirstNode->text().toInt();
@@ -401,14 +395,12 @@ void QtGraphs::on_pushButton_DeleteEdge_clicked()
 void QtGraphs::on_pushButton_ObxodInDepth_clicked()
 {
     ui.textBrowser->clear();
-    if (ui.lineEditAlgoritmObxodaInDepth->text().isEmpty()) 
-    {
+    if (ui.lineEditAlgoritmObxodaInDepth->text().isEmpty()) {
         return;
     }
     vector<int> dfsv;
     int s = ui.lineEditAlgoritmObxodaInDepth->text().toInt();
-    if (graph.nodes_map.find(s) != graph.nodes_map.end()) 
-    {
+    if (graph.nodes_map.find(s) != graph.nodes_map.end()) {
         graph.DFS(s, dfsv);
         QString resultString;
         for (int i = 0; i < dfsv.size(); i++)
@@ -618,96 +610,6 @@ void QtGraphs::on_pushButton_CLEAR_clicked()
 {
     graph.clearGraph();
     update();
-}
-vector<int> Graph::solveTSP(int startNodeData)
-{
-    if (nodes_map.find(startNodeData) == nodes_map.end() || nodes_map.size() < 2) 
-    {
-        return {};
-    }
-    int bestCost = numeric_limits<int>::max();
-    vector<int> bestPath;
-    unordered_set<int> visited;
-    vector<int> currentPath;
-    visited.insert(startNodeData);
-    currentPath.push_back(startNodeData);
-    tspHelper(startNodeData, visited, currentPath, 0, bestCost, bestPath, startNodeData);
-    if (!bestPath.empty()) 
-    {
-        bestPath.push_back(startNodeData);
-    }
-    return bestPath;
-}
-void Graph::tspHelper(int currentNodeData, unordered_set<int>& visited, vector<int>& currentPath, int currentCost, int& bestCost, vector<int>& bestPath, int startNodeData) 
-{
-    if (visited.size() == nodes_map.size())
-    {
-        for (Edge* edge : nodes_map[currentNodeData]->edges_to_node) 
-        {
-            if (edge->to->data == startNodeData) 
-            {
-                int totalCost = currentCost + edge->weight;
-                if (totalCost < bestCost) 
-                {
-                    bestCost = totalCost;
-                    bestPath = currentPath;
-                }
-                break;
-            }
-        }
-        return;
-    }
-    Node* currentNode = nodes_map[currentNodeData];
-    for (Edge* edge : currentNode->edges_to_node)
-    {
-        if (visited.find(edge->to->data) == visited.end()) 
-        {
-            visited.insert(edge->to->data);
-            currentPath.push_back(edge->to->data);
-            tspHelper(edge->to->data, visited, currentPath, currentCost + edge->weight, bestCost, bestPath, startNodeData);
-            visited.erase(edge->to->data);
-            currentPath.pop_back();
-        }
-    }
-}
-void QtGraphs::on_pushButton_KomiVoyager_clicked()
-{
-    ui.textBrowser_KomiVoyager->clear();
-    int s = ui.lineEdit_KomiVoyager->text().toInt();
-    vector<int>shortestPath = graph.solveTSP(s);
-    QString resultString;
-    for (int i = 0; i < shortestPath.size(); i++) 
-    {
-        resultString.append(QString::number(shortestPath[i]));
-        if (i < shortestPath.size() - 1) 
-        {
-            resultString.append(", ");
-        }
-    }
-    static int idx = 0;
-    QTimer* timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, [=]() 
-    {
-        if (shortestPath.size() != 0 and idx < shortestPath.size()) 
-        {
-            Node* nod = graph.nodes_map[shortestPath[idx]];
-            sNode = nod;
-            sel = 1;
-            update();
-            idx++;
-        }
-        else 
-        {
-            ui.textBrowser_KomiVoyager->setText(resultString);
-            timer->stop();
-            timer->deleteLater();
-            sel = 0;
-            ui.lineEdit_KomiVoyager->clear();
-            update();
-            idx = 0;
-        }
-        });
-    timer->start(500);
 }
 void QtGraphs::on_pushButton_Tablica_clicked()
 {
