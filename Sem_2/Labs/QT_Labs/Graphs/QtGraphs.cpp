@@ -1,4 +1,4 @@
-include "QtGraphs.h"
+#include "QtGraphs.h"
 #include <QPainter>
 #include <vector>
 #include <QLineEdit>
